@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АтырауДоставка — Доставка в СИЗО г. Атырау</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #E8430A;
+  --primary-dark: #C43508;
+  --accent: #F5A623;
+  --bg: #FFF9F5;
+  --bg-card: #FFFFFF;
+  --text: #2D1B0E;
+  --text-light: #7A6555;
+  --text-muted: #B09A8A;
+  --border: #F0E4DA;
+  --green: #3A8F4A;
+  --green-light: #E8F5E9;
+  --badge-hot: #FF4D2A;
+  --badge-set: #6C63FF;
+  --shadow-sm: 0 2px 8px rgba(45,27,14,0.06);
+  --shadow-md: 0 4px 20px rgba(45,27,14,0.1);
+  --shadow-lg: 0 8px 40px rgba(45,27,14,0.14);
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== HEADER ===== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,249,245,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+.header.scrolled { box-shadow: var(--shadow-md); }
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.logo-icon {
+  width: 46px;
+  height: 46px;
+  background: var(--primary);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(232,67,10,0.3);
+}
+.logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.5px;
+}
+.logo-text span { color: var(--primary); }
+.logo-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 14px;
+  color: var(--text-light);
+  font-weight: 600;
+}
+.header-info a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.cart-btn {
+  position: relative;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 16px rgba(232,67,10,0.3);
+}
+.cart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(232,67,10,0.4);
+}
+.cart-count {
+  background: #fff;
+  color: var(--primary);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* ===== HERO ===== */
+.hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 32px;
+  text-align: center;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--primary);
+  position: relative;
+}
+.hero h1 em::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: rgba(232,67,10,0.15);
+  border-radius: 4px;
+}
+.hero p {
+  font-size: 18px;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto 28px;
+}
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+.hero-badge .icon { font-size: 18px; }
+
+/* ===== CATEGORY NAV ===== */
+.cat-nav {
+  position: sticky;
+  top: 75px;
+  z-index: 90;
+  background: rgba(255,249,245,0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.cat-nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 0px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cat-nav-inner::-webkit-scrollbar { display: none; }
+
+.cat-link {
+  flex-shrink: 0;
+  padding: 12px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-light);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: all 0.25s;
+  white-space: nowrap;
+}
+.cat-link:hover, .cat-link.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 24px;
+}
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.section-icon { font-size: 28px; }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text);
+}
+.section-count {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ===== PRODUCT GRID ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+.card-img {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 56px;
+  position: relative;
+  overflow: hidden;
+}
+.card-img.hot-bg { background: linear-gradient(135deg, #FFF3E0, #FFE0B2); }
+.card-img.green-bg { background: linear-gradient(135deg, #E8F5E9, #C8E6C9); }
+.card-img.fruit-bg { background: linear-gradient(135deg, #FFF9C4, #FFE082); }
+.card-img.grocery-bg { background: linear-gradient(135deg, #E3F2FD, #BBDEFB); }
+.card-img.fast-bg { background: linear-gradient(135deg, #FFECB3, #FFD54F); }
+.card-img.pizza-bg { background: linear-gradient(135deg, #FFCCBC, #FFAB91); }
+.card-img.grill-bg { background: linear-gradient(135deg, #D7CCC8, #BCAAA4); }
+.card-img.sauce-bg { background: linear-gradient(135deg, #F3E5F5, #E1BEE7); }
+.card-img.set-bg { background: linear-gradient(135deg, #E8EAF6, #C5CAE9); }
+.card-img.garnir-bg { background: linear-gradient(135deg, #FFF8E1, #FFECB3); }
+.card-img.tobacco-bg { background: linear-gradient(135deg, #EFEBE9, #D7CCC8); }
+.card-img.hygiene-bg { background: linear-gradient(135deg, #E0F7FA, #B2EBF2); }
+
+.card-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.badge-hot { background: var(--badge-hot); color: #fff; }
+.badge-set { background: var(--badge-set); color: #fff; }
+.badge-new { background: var(--green); color: #fff; }
+.badge-gift { background: var(--accent); color: #fff; }
+
+.card-body {
+  padding: 18px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.card-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  flex: 1;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-price {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+}
+.card-price span {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.add-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s;
+  flex-shrink: 0;
+}
+.add-btn:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* ===== COMPACT GRID for sauces etc ===== */
+.grid-compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+}
+.card-compact {
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all 0.25s;
+}
+.card-compact:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.card-compact .emoji { font-size: 28px; }
+.card-compact .info { flex: 1; }
+.card-compact .name { font-size: 14px; font-weight: 700; }
+.card-compact .price {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+/* ===== INFO BANNER ===== */
+.info-banner {
+  max-width: 1200px;
+  margin: 48px auto 0;
+  padding: 0 24px;
+}
+.info-banner-inner {
+  background: linear-gradient(135deg, var(--primary) 0%, #C43508 100%);
+  border-radius: var(--radius);
+  padding: 40px 48px;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+}
+.info-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+.info-item p {
+  font-size: 14px;
+  opacity: 0.85;
+  line-height: 1.5;
+}
+.info-item .icon-big { font-size: 32px; margin-bottom: 12px; }
+
+/* ===== FOOTER ===== */
+.footer {
+  max-width: 1200px;
+  margin: 48px auto 0;
+  padding: 32px 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.footer a { color: var(--primary); text-decoration: none; font-weight: 700; }
+
+/* ===== CART SIDEBAR ===== */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(45,27,14,0.4);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s;
+}
+.cart-overlay.open { opacity: 1; visibility: visible; }
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  max-width: 90vw;
+  height: 100vh;
+  background: #fff;
+  z-index: 201;
+  transition: right 0.4s cubic-bezier(0.22,1,0.36,1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: -8px 0 40px rgba(0,0,0,0.15);
+}
+.cart-sidebar.open { right: 0; }
+
+.cart-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+}
+.cart-close {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 24px;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.cart-item .emoji { font-size: 32px; }
+.cart-item .details { flex: 1; }
+.cart-item .item-name { font-size: 14px; font-weight: 700; }
+.cart-item .item-price { font-size: 13px; color: var(--text-muted); }
+.cart-item .qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.qty-btn {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.qty-btn:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+.cart-item .qty { font-weight: 800; font-size: 15px; min-width: 20px; text-align: center; }
+.cart-item .remove-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+}
+.cart-item .remove-btn:hover { color: var(--badge-hot); }
+
+.cart-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+.cart-empty .icon { font-size: 48px; margin-bottom: 16px; }
+
+.cart-footer {
+  padding: 24px;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.cart-total .amount { color: var(--primary); font-size: 22px; }
+
+.checkout-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 16px rgba(232,67,10,0.3);
+}
+.checkout-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(232,67,10,0.4);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .header-info { display: none; }
+  .hero { padding: 32px 16px 20px; }
+  .hero h1 { font-size: 28px; }
+  .section { padding: 36px 16px 16px; }
+  .grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; }
+  .card-img { height: 110px; font-size: 40px; }
+  .card-body { padding: 12px 14px; }
+  .card-name { font-size: 14px; }
+  .card-price { font-size: 16px; }
+  .add-btn { width: 36px; height: 36px; font-size: 18px; }
+  .info-banner-inner { grid-template-columns: 1fr; padding: 28px; gap: 20px; }
+  .grid-compact { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .cat-link { padding: 12px 14px; font-size: 13px; }
+}
+
+/* ===== TOAST ===== */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--text);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  z-index: 300;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.section { animation: fadeUp 0.6s ease both; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">🍱</div>
+      <div>
+        <div class="logo-text">Атырау<span>Доставка</span></div>
+        <div class="logo-sub">Доставка в СИЗО</div>
+      </div>
+    </a>
+    <div class="header-info">
+      <span>📍 г. Атырау</span>
+      <span>📞 <a href="tel:+77755207309">+7 775 520 73 09</a></span>
+      <span>🕐 09:00 — 18:00</span>
+    </div>
+    <button class="cart-btn" onclick="toggleCart()">
+      🛒 Корзина <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Доставка продуктов и<br>готовых блюд <em>в СИЗО</em></h1>
+  <p>Качественная еда и свежие продукты для ваших близких. Быстрая доставка по Атырау, соблюдаем все требования.</p>
+  <div class="hero-badges">
+    <div class="hero-badge"><span class="icon">✅</span> Проверка перед отправкой</div>
+    <div class="hero-badge"><span class="icon">📦</span> Надёжная упаковка</div>
+    <div class="hero-badge"><span class="icon">⏰</span> Доставка в день заказа</div>
+    <div class="hero-badge"><span class="icon">💳</span> Kaspi / Наличные</div>
+  </div>
+</section>
+
+<!-- CATEGORY NAV -->
+<nav class="cat-nav">
+  <div class="cat-nav-inner">
+    <a href="#hot-soups" class="cat-link">🍲 Горячие супы</a>
+    <a href="#hot-main" class="cat-link">🥘 Горячие блюда</a>
+    <a href="#company" class="cat-link">🎉 На компанию</a>
+    <a href="#pizza" class="cat-link">🍕 Пицца</a>
+    <a href="#fastfood" class="cat-link">🍔 Фастфуд</a>
+    <a href="#shashlik" class="cat-link">🥩 Шашлыки</a>
+    <a href="#garnir" class="cat-link">🍚 Гарнир</a>
+    <a href="#sauces" class="cat-link">🍯 Соусы</a>
+    <a href="#vegetables" class="cat-link">🥬 Овощи</a>
+    <a href="#fruits" class="cat-link">🍎 Фрукты</a>
+    <a href="#grocery" class="cat-link">🏪 Магазин</a>
+    <a href="#tobacco" class="cat-link">🚬 Табак</a>
+    <a href="#hygiene" class="cat-link">🧴 Гигиена</a>
+  </div>
+</nav>
+
+<!-- ==================== ГОРЯЧИЕ СУПЫ ==================== -->
+<div class="section" id="hot-soups">
+  <div class="section-header">
+    <span class="section-icon">🍲</span>
+    <h2 class="section-title">Горячие готовые блюда</h2>
+    <span class="section-count">12 позиций</span>
+  </div>
+  <div class="grid" id="grid-soups"></div>
+</div>
+
+<!-- ==================== ГОРЯЧИЕ БЛЮДА ==================== -->
+<div class="section" id="hot-main">
+  <div class="section-header">
+    <span class="section-icon">🥘</span>
+    <h2 class="section-title">Горячие блюда</h2>
+    <span class="section-count">15 позиций</span>
+  </div>
+  <div class="grid" id="grid-main"></div>
+</div>
+
+<!-- ==================== НА КОМПАНИЮ ==================== -->
+<div class="section" id="company">
+  <div class="section-header">
+    <span class="section-icon">🎉</span>
+    <h2 class="section-title">Блюда на компанию</h2>
+    <span class="section-count">7 позиций</span>
+  </div>
+  <div class="grid" id="grid-company"></div>
+</div>
+
+<!-- ==================== ПИЦЦА ==================== -->
+<div class="section" id="pizza">
+  <div class="section-header">
+    <span class="section-icon">🍕</span>
+    <h2 class="section-title">Пицца</h2>
+    <span class="section-count">6 позиций</span>
+  </div>
+  <div class="grid" id="grid-pizza"></div>
+</div>
+
+<!-- ==================== ФАСТФУД ==================== -->
+<div class="section" id="fastfood">
+  <div class="section-header">
+    <span class="section-icon">🍔</span>
+    <h2 class="section-title">Фастфуд</h2>
+    <span class="section-count">12 позиций</span>
+  </div>
+  <div class="grid" id="grid-fast"></div>
+</div>
+
+<!-- ==================== ШАШЛЫКИ ==================== -->
+<div class="section" id="shashlik">
+  <div class="section-header">
+    <span class="section-icon">🥩</span>
+    <h2 class="section-title">Шашлыки</h2>
+    <span class="section-count">5 позиций</span>
+  </div>
+  <div class="grid" id="grid-shashlik"></div>
+</div>
+
+<!-- ==================== ГАРНИР ==================== -->
+<div class="section" id="garnir">
+  <div class="section-header">
+    <span class="section-icon">🍚</span>
+    <h2 class="section-title">Гарнир</h2>
+    <span class="section-count">2 позиции</span>
+  </div>
+  <div class="grid-compact" id="grid-garnir"></div>
+</div>
+
+<!-- ==================== СОУСЫ ==================== -->
+<div class="section" id="sauces">
+  <div class="section-header">
+    <span class="section-icon">🍯</span>
+    <h2 class="section-title">Соусы экстра</h2>
+    <span class="section-count">6 позиций</span>
+  </div>
+  <div class="grid-compact" id="grid-sauces"></div>
+</div>
+
+<!-- ==================== ОВОЩИ ==================== -->
+<div class="section" id="vegetables">
+  <div class="section-header">
+    <span class="section-icon">🥬</span>
+    <h2 class="section-title">Овощи</h2>
+    <span class="section-count">15 позиций</span>
+  </div>
+  <div class="grid" id="grid-vegetables"></div>
+</div>
+
+<!-- ==================== ФРУКТЫ ==================== -->
+<div class="section" id="fruits">
+  <div class="section-header">
+    <span class="section-icon">🍎</span>
+    <h2 class="section-title">Фрукты</h2>
+    <span class="section-count">12 позиций</span>
+  </div>
+  <div class="grid" id="grid-fruits"></div>
+</div>
+
+<!-- ==================== ПРОДУКТЫ ==================== -->
+<div class="section" id="grocery">
+  <div class="section-header">
+    <span class="section-icon">🏪</span>
+    <h2 class="section-title">Магазин</h2>
+    <span class="section-count">35 позиций</span>
+  </div>
+  <div class="grid" id="grid-grocery"></div>
+</div>
+
+<!-- ==================== ТАБАЧНЫЕ ИЗДЕЛИЯ ==================== -->
+<div class="section" id="tobacco">
+  <div class="section-header">
+    <span class="section-icon">🚬</span>
+    <h2 class="section-title">Табачные изделия</h2>
+    <span class="section-count">12 позиций</span>
+  </div>
+  <div class="grid" id="grid-tobacco"></div>
+</div>
+
+<!-- ==================== СРЕДСТВА ГИГИЕНЫ ==================== -->
+<div class="section" id="hygiene">
+  <div class="section-header">
+    <span class="section-icon">🧴</span>
+    <h2 class="section-title">Средства гигиены</h2>
+    <span class="section-count">18 позиций</span>
+  </div>
+  <div class="grid" id="grid-hygiene"></div>
+</div>
+
+<!-- ==================== INFO BANNER ==================== -->
+<div class="info-banner">
+  <div class="info-banner-inner">
+    <div class="info-item">
+      <div class="icon-big">📋</div>
+      <h3>Как заказать</h3>
+      <p>Выберите товары и блюда, добавьте в корзину. Оформите заказ через WhatsApp или по телефону. Мы свяжемся с вами для подтверждения.</p>
+    </div>
+    <div class="info-item">
+      <div class="icon-big">📦</div>
+      <h3>Правила передачи</h3>
+      <p>Все продукты упаковываются в прозрачную тару согласно требованиям СИЗО. Горячие блюда доставляются в термоупаковке.</p>
+    </div>
+    <div class="info-item">
+      <div class="icon-big">💰</div>
+      <h3>Оплата</h3>
+      <p>Принимаем оплату через Kaspi перевод и наличными при встрече. Минимальный заказ — 5 000 ₸. Доставка — 1 000 ₸.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div>© 2025 АтырауДоставка — Доставка в СИЗО г. Атырау</div>
+  <div>
+    📞 <a href="tel:+77755207309">+7 775 520 73 09</a> &nbsp;|&nbsp;
+    💬 <a href="https://wa.me/77755207309">WhatsApp</a>
+  </div>
+</footer>
+
+<!-- ==================== CART SIDEBAR ==================== -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>🛒 Корзина</h2>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="icon">🛒</div>
+      <p>Корзина пуста</p>
+      <p style="font-size: 13px; margin-top: 8px;">Добавьте блюда или продукты</p>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span>Итого:</span>
+      <span class="amount" id="cartTotal">0 ₸</span>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">📱 Оформить через WhatsApp</button>
+  </div>
+</div>
+
+<!-- ==================== TOAST ==================== -->
+<div class="toast" id="toast">✅ Добавлено в корзину</div>
+
+<script>
+// ===== DATA =====
+const data = {
+  soups: [
+    { name: "Шорпа говяжий", price: 2400, emoji: "🥣", desc: "Наваристый суп из говядины" },
+    { name: "Шорпа из баранины", price: 2290, emoji: "🐑", desc: "Ароматная шорпа из баранины" },
+    { name: "Фрикадельки", price: 2090, emoji: "🍖", desc: "Суп с мясными фрикадельками" },
+    { name: "Пельмени", price: 2090, emoji: "🥟", desc: "Домашние пельмени в бульоне" },
+    { name: "Борщ", price: 2090, emoji: "🍅", desc: "Классический борщ со сметаной" },
+    { name: "Манпар", price: 1890, emoji: "🍜", desc: "Традиционный казахский манпар" },
+    { name: "Лагман по-домашнему", price: 2390, emoji: "🍝", desc: "Наваристый домашний лагман" },
+    { name: "Кеспе из курицы", price: 1900, emoji: "🐔", desc: "Куриный суп с домашней лапшой" },
+    { name: "Уха", price: 2100, emoji: "🐟", desc: "Рыбный суп из свежей рыбы" },
+    { name: "Чечевичный суп", price: 1900, emoji: "🍲", desc: "Густой суп из чечевицы" },
+    { name: "Рамен говяжий", price: 2390, emoji: "🍜", desc: "Рамен с говядиной и яйцом" },
+    { name: "Рамен куриный", price: 2290, emoji: "🍜", desc: "Рамен с нежной курицей" },
+  ],
+  main: [
+    { name: "Бешбармак с сорпа", price: 2800, emoji: "🍖", desc: "Национальное блюдо с бульоном", badge: "Хит" },
+    { name: "Казан кебаб говяжий", price: 2700, emoji: "🥘", desc: "Мясо в казане с овощами" },
+    { name: "Казан кебаб из баранины", price: 2600, emoji: "🐑", desc: "Баранина в казане" },
+    { name: "Плов ханский", price: 1800, emoji: "🍛", desc: "Ароматный плов по-хански" },
+    { name: "Манты паренные", price: 2300, emoji: "🥟", desc: "Большие манты на пару" },
+    { name: "Сазан с картофелем", price: 2490, emoji: "🐟", desc: "Рыба с гарниром" },
+    { name: "Жареный лагман", price: 2200, emoji: "🍝", desc: "Лагман обжаренный на огне" },
+    { name: "Гуйру лагман", price: 2150, emoji: "🍝", desc: "Тянутая лапша с мясом" },
+    { name: "Фри с мясом", price: 2300, emoji: "🍟", desc: "Картофель фри с мясом" },
+    { name: "Бефстроганов с пюре", price: 2300, emoji: "🥩", desc: "Классический бефстроганов" },
+    { name: "Паста болоньезе", price: 2200, emoji: "🍝", desc: "Итальянская паста с соусом" },
+    { name: "Мясо по-тайски", price: 2190, emoji: "🌶️", desc: "Пикантное мясо в соусе" },
+    { name: "Паста Альфредо с курицей", price: 2490, emoji: "🧀", desc: "Сливочная паста с курицей" },
+    { name: "Курица гриль", price: 2790, emoji: "🍗", desc: "Целая курица на гриле", badge: "Хит" },
+    { name: "Нарын", price: 2550, emoji: "🍖", desc: "Тонко нарезанное мясо с тестом" },
+  ],
+  company: [
+    { name: "Манты ассорти 30 шт", price: 14100, emoji: "🥟", desc: "Большой набор мантов ассорти", badge: "Компания" },
+    { name: "Бешбармак 2 астау", price: 16800, emoji: "🍖", desc: "Бешбармак на большую компанию", badge: "Компания" },
+    { name: "Сирне из баранины", price: 15300, emoji: "🐑", desc: "Традиционное блюдо из баранины", badge: "Компания" },
+    { name: "Шах плов", price: 16300, emoji: "🍛", desc: "Праздничный плов в тесте", badge: "Компания" },
+    { name: "Плов с люля (4 перс.)", price: 12500, emoji: "🎁", desc: "В подарок напиток 1л!", badge: "Подарок", badgeClass: "badge-gift" },
+    { name: "Манты с шашлыками (6 перс.)", price: 15600, emoji: "🎁", desc: "В подарок напиток 1л!", badge: "Подарок", badgeClass: "badge-gift" },
+    { name: "Ачичук", price: 1700, emoji: "🥗", desc: "Свежий салат из овощей" },
+  ],
+  pizza: [
+    { name: "Маргарита", price: 2190, emoji: "🍕", desc: "Классика с томатами и моцареллой" },
+    { name: "Пепперони", price: 2390, emoji: "🍕", desc: "С острой пепперони" },
+    { name: "Болоньезе", price: 2390, emoji: "🍕", desc: "С мясным соусом болоньезе" },
+    { name: "Курица с грибами", price: 2590, emoji: "🍕", desc: "Курица, грибы, сыр" },
+    { name: "4 сезона", price: 2690, emoji: "🍕", desc: "Четыре начинки в одной" },
+    { name: "Хачапури по-аджарски", price: 2690, emoji: "🫓", desc: "С яйцом и сливочным маслом" },
+  ],
+  fastfood: [
+    { name: "Фри", price: 1090, emoji: "🍟", desc: "Хрустящий картофель фри" },
+    { name: "Картофельные шарики", price: 1090, emoji: "🧆", desc: "Золотистые картофельные шарики" },
+    { name: "Картофельные дольки", price: 1090, emoji: "🥔", desc: "Запечённые дольки" },
+    { name: "Гамбургер", price: 2490, emoji: "🍔", desc: "Классический гамбургер с говядиной" },
+    { name: "Чикен бургер", price: 2390, emoji: "🍔", desc: "Бургер с куриной котлетой" },
+    { name: "Чизбургер", price: 2450, emoji: "🍔", desc: "Бургер с двойным сыром" },
+    { name: "Чикен 10 шт", price: 2190, emoji: "🍗", desc: "Куриные кусочки в панировке" },
+    { name: "Донер куриный", price: 1390, emoji: "🌯", desc: "Донер с курицей" },
+    { name: "Донер говяжий", price: 1490, emoji: "🌯", desc: "Донер с говядиной" },
+    { name: "Бургер сэт", price: 3250, emoji: "🍔", desc: "Бургер + фри + напиток 0.5л", badge: "Сэт", badgeClass: "badge-set" },
+    { name: "Донер сэт", price: 2590, emoji: "🌯", desc: "Донер + фри + напиток 0.5л", badge: "Сэт", badgeClass: "badge-set" },
+  ],
+  shashlik: [
+    { name: "Шашлык из баранины", price: 2090, emoji: "🥩", desc: "Сочный шашлык на мангале" },
+    { name: "Шашлык из говядины", price: 2090, emoji: "🥩", desc: "Классический говяжий шашлык" },
+    { name: "Шашлык из телятины", price: 2190, emoji: "🥩", desc: "Нежная телятина на углях" },
+    { name: "Шашлык из курицы", price: 1890, emoji: "🐔", desc: "Куриный шашлык" },
+    { name: "Люля кебаб", price: 2090, emoji: "🥙", desc: "Рубленый люля на мангале" },
+  ],
+  garnir: [
+    { name: "Картофельное пюре", price: 890, emoji: "🥔" },
+    { name: "Рис", price: 890, emoji: "🍚" },
+  ],
+  sauces: [
+    { name: "Кетчуп", price: 250, emoji: "🍅" },
+    { name: "Майонез", price: 250, emoji: "🥚" },
+    { name: "Сметана", price: 250, emoji: "🥛" },
+    { name: "Шашлычный", price: 250, emoji: "🔥" },
+    { name: "Чесночный", price: 250, emoji: "🧄" },
+    { name: "Свит Чили", price: 250, emoji: "🌶️" },
+  ],
+  vegetables: [
+    { name: "Картофель", price: 250, emoji: "🥔", desc: "1 кг", unit: "кг" },
+    { name: "Морковь", price: 350, emoji: "🥕", desc: "1 кг", unit: "кг" },
+    { name: "Лук репчатый", price: 300, emoji: "🧅", desc: "1 кг", unit: "кг" },
+    { name: "Помидоры", price: 900, emoji: "🍅", desc: "1 кг", unit: "кг" },
+    { name: "Огурцы", price: 800, emoji: "🥒", desc: "1 кг", unit: "кг" },
+    { name: "Капуста белокочанная", price: 350, emoji: "🥬", desc: "1 кг", unit: "кг" },
+    { name: "Перец болгарский", price: 1200, emoji: "🫑", desc: "1 кг", unit: "кг" },
+    { name: "Свёкла", price: 350, emoji: "🟤", desc: "1 кг", unit: "кг" },
+    { name: "Чеснок", price: 2500, emoji: "🧄", desc: "1 кг", unit: "кг" },
+    { name: "Баклажан", price: 1100, emoji: "🍆", desc: "1 кг", unit: "кг" },
+    { name: "Кабачок", price: 800, emoji: "🥒", desc: "1 кг", unit: "кг" },
+    { name: "Редис", price: 700, emoji: "🔴", desc: "1 пучок", unit: "пуч." },
+    { name: "Зелень (укроп/петрушка)", price: 350, emoji: "🌿", desc: "1 пучок", unit: "пуч." },
+    { name: "Салат листовой", price: 500, emoji: "🥗", desc: "1 пучок", unit: "пуч." },
+    { name: "Имбирь", price: 3000, emoji: "🌿", desc: "1 кг", unit: "кг" },
+  ],
+  fruits: [
+    { name: "Яблоки", price: 700, emoji: "🍎", desc: "1 кг", unit: "кг" },
+    { name: "Бананы", price: 900, emoji: "🍌", desc: "1 кг", unit: "кг" },
+    { name: "Апельсины", price: 1000, emoji: "🍊", desc: "1 кг", unit: "кг" },
+    { name: "Мандарины", price: 1200, emoji: "🍊", desc: "1 кг", unit: "кг" },
+    { name: "Груши", price: 1100, emoji: "🍐", desc: "1 кг", unit: "кг" },
+    { name: "Виноград", price: 1800, emoji: "🍇", desc: "1 кг", unit: "кг" },
+    { name: "Лимон", price: 1500, emoji: "🍋", desc: "1 кг", unit: "кг" },
+    { name: "Гранат", price: 1800, emoji: "🔴", desc: "1 кг", unit: "кг" },
+    { name: "Хурма", price: 1200, emoji: "🟠", desc: "1 кг", unit: "кг" },
+    { name: "Киви", price: 1800, emoji: "🥝", desc: "1 кг", unit: "кг" },
+    { name: "Арбуз (сезон)", price: 400, emoji: "🍉", desc: "1 кг", unit: "кг" },
+    { name: "Дыня (сезон)", price: 600, emoji: "🍈", desc: "1 кг", unit: "кг" },
+  ],
+  grocery: [
+    { name: "Хлеб белый", price: 250, emoji: "🍞", desc: "1 буханка", unit: "шт" },
+    { name: "Хлеб бородинский", price: 350, emoji: "🍞", desc: "1 буханка", unit: "шт" },
+    { name: "Лепёшка", price: 300, emoji: "🫓", desc: "1 штука", unit: "шт" },
+    { name: "Молоко 1л", price: 650, emoji: "🥛", desc: "1 литр", unit: "шт" },
+    { name: "Кефир 1л", price: 600, emoji: "🥛", desc: "1 литр", unit: "шт" },
+    { name: "Сметана 400г", price: 600, emoji: "🍶", desc: "400 грамм", unit: "шт" },
+    { name: "Масло сливочное 200г", price: 800, emoji: "🧈", desc: "200 грамм", unit: "шт" },
+    { name: "Сыр 1 кг", price: 3500, emoji: "🧀", desc: "1 кг", unit: "кг" },
+    { name: "Яйца 10 шт", price: 650, emoji: "🥚", desc: "Десяток", unit: "уп." },
+    { name: "Колбаса варёная 1 кг", price: 2500, emoji: "🌭", desc: "1 кг", unit: "кг" },
+    { name: "Рис 1 кг", price: 600, emoji: "🍚", desc: "1 кг", unit: "кг" },
+    { name: "Макароны 500г", price: 400, emoji: "🍝", desc: "500 грамм", unit: "шт" },
+    { name: "Масло подсолнечное 1л", price: 800, emoji: "🫒", desc: "1 литр", unit: "шт" },
+    { name: "Сахар 1 кг", price: 500, emoji: "🍬", desc: "1 кг", unit: "кг" },
+    { name: "Чай чёрный 100 пак.", price: 1200, emoji: "🍵", desc: "100 пакетиков", unit: "уп." },
+    { name: "Кофе растворимый 100г", price: 1500, emoji: "☕", desc: "100 грамм", unit: "шт" },
+    { name: "Печенье 500г", price: 800, emoji: "🍪", desc: "500 грамм", unit: "уп." },
+    { name: "Тушёнка 400г", price: 1200, emoji: "🥫", desc: "400 грамм", unit: "шт" },
+    { name: "Вода 1.5л", price: 250, emoji: "💧", desc: "1.5 литра", unit: "шт" },
+    { name: "Сок 1л", price: 700, emoji: "🧃", desc: "1 литр", unit: "шт" },
+    { name: "Сгущёнка 400г", price: 700, emoji: "🥫", desc: "400 грамм", unit: "шт" },
+    { name: "Мёд 500г", price: 2500, emoji: "🍯", desc: "500 грамм", unit: "шт" },
+    { name: "Варенье 500г", price: 1200, emoji: "🍓", desc: "500 грамм", unit: "шт" },
+    { name: "Гречка 1 кг", price: 700, emoji: "🌾", desc: "1 кг", unit: "кг" },
+    { name: "Овсянка 500г", price: 500, emoji: "🥣", desc: "500 грамм", unit: "шт" },
+    { name: "Лапша быстрого прив. (5 шт)", price: 600, emoji: "🍜", desc: "5 штук", unit: "уп." },
+    { name: "Майонез 400г", price: 700, emoji: "🥚", desc: "400 грамм", unit: "шт" },
+    { name: "Кетчуп 400г", price: 650, emoji: "🍅", desc: "400 грамм", unit: "шт" },
+    { name: "Шоколад плитка", price: 600, emoji: "🍫", desc: "100 грамм", unit: "шт" },
+    { name: "Конфеты 500г", price: 1800, emoji: "🍬", desc: "500 грамм", unit: "уп." },
+    { name: "Вафли 200г", price: 500, emoji: "🧇", desc: "200 грамм", unit: "шт" },
+    { name: "Сушки / баранки", price: 400, emoji: "🥯", desc: "300 грамм", unit: "уп." },
+    { name: "Творог 200г", price: 500, emoji: "🧀", desc: "200 грамм", unit: "шт" },
+    { name: "Сосиски 500г", price: 1200, emoji: "🌭", desc: "500 грамм", unit: "шт" },
+  ],
+  tobacco: [
+    { name: "Parliament Night Blue", price: 1200, emoji: "🚬", desc: "Пачка 20 шт", unit: "шт" },
+    { name: "Parliament Aqua Blue", price: 1200, emoji: "🚬", desc: "Пачка 20 шт", unit: "шт" },
+    { name: "Marlboro Red", price: 1100, emoji: "🚬", desc: "Пачка 20 шт", unit: "шт" },
+    { name: "Marlboro Gold", price: 1100, emoji: "🚬", desc: "Пачка 20 шт", unit: "шт" },
+    { name: "Winston Blue", price: 900, emoji: "🚬", desc: "Пачка 20 шт", unit: "шт" },
+    { name: "Winston Red", price: 900, emoji: "🚬", desc: "Пачка 20 шт", unit: "шт" },
+    { name: "Camel Yellow", price: 950, emoji: "🚬", desc: "Пачка 20 шт", unit: "шт" },
+    { name: "Kent Silver", price: 1050, emoji: "🚬", desc: "Пачка 20 шт", unit: "шт" },
+    { name: "Bond Street Blue", price: 750, emoji: "🚬", desc: "Пачка 20 шт", unit: "шт" },
+    { name: "L&M Blue Label", price: 800, emoji: "🚬", desc: "Пачка 20 шт", unit: "шт" },
+    { name: "Зажигалка", price: 200, emoji: "🔥", desc: "1 штука", unit: "шт" },
+    { name: "Спички (10 коробков)", price: 200, emoji: "🔥", desc: "Упаковка", unit: "уп." },
+  ],
+  hygiene: [
+    { name: "Мыло туалетное", price: 350, emoji: "🧼", desc: "90г", unit: "шт" },
+    { name: "Шампунь 400мл", price: 1500, emoji: "🧴", desc: "400 мл", unit: "шт" },
+    { name: "Гель для душа 400мл", price: 1400, emoji: "🚿", desc: "400 мл", unit: "шт" },
+    { name: "Зубная паста", price: 800, emoji: "🪥", desc: "100 мл", unit: "шт" },
+    { name: "Зубная щётка", price: 500, emoji: "🪥", desc: "1 штука", unit: "шт" },
+    { name: "Бритвенный станок (5 шт)", price: 900, emoji: "🪒", desc: "Одноразовые", unit: "уп." },
+    { name: "Дезодорант", price: 1200, emoji: "🧴", desc: "150 мл", unit: "шт" },
+    { name: "Туалетная бумага (4 рул.)", price: 700, emoji: "🧻", desc: "4 рулона", unit: "уп." },
+    { name: "Влажные салфетки", price: 500, emoji: "🧻", desc: "60 шт", unit: "уп." },
+    { name: "Стиральный порошок 1 кг", price: 1200, emoji: "🧺", desc: "1 кг", unit: "шт" },
+    { name: "Хозяйственное мыло", price: 300, emoji: "🧼", desc: "200г", unit: "шт" },
+    { name: "Полотенце", price: 1500, emoji: "🛁", desc: "Банное", unit: "шт" },
+    { name: "Крем для рук", price: 600, emoji: "🧴", desc: "75 мл", unit: "шт" },
+    { name: "Расчёска", price: 400, emoji: "💇", desc: "1 штука", unit: "шт" },
+    { name: "Носки (3 пары)", price: 1200, emoji: "🧦", desc: "3 пары", unit: "уп." },
+    { name: "Трусы", price: 1000, emoji: "👕", desc: "1 штука", unit: "шт" },
+    { name: "Тапочки", price: 1500, emoji: "🩴", desc: "1 пара", unit: "шт" },
+    { name: "Ватные палочки (100 шт)", price: 350, emoji: "🏥", desc: "100 штук", unit: "уп." },
+  ]
+};
+
+// ===== CART STATE =====
+let cart = [];
+
+// ===== RENDER FUNCTIONS =====
+function renderCard(item, bgClass) {
+  const badgeClass = item.badgeClass || (item.badge === "Хит" ? "badge-hot" : item.badge === "Компания" ? "badge-set" : item.badge === "Подарок" ? "badge-gift" : "badge-new");
+  const badgeHtml = item.badge ? `<span class="card-badge ${badgeClass}">${item.badge}</span>` : '';
+  const unitText = item.unit ? ` / ${item.unit}` : ' ₸';
+  return `
+    <div class="card">
+      <div class="card-img ${bgClass}">
+        ${badgeHtml}
+        ${item.emoji}
+      </div>
+      <div class="card-body">
+        <div class="card-name">${item.name}</div>
+        ${item.desc ? `<div class="card-desc">${item.desc}</div>` : '<div class="card-desc"></div>'}
+        <div class="card-footer">
+          <div class="card-price">${item.price.toLocaleString('ru-RU')} <span>${item.unit ? '₸/' + item.unit : '₸'}</span></div>
+          <button class="add-btn" onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, '${item.emoji}')" title="Добавить">+</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderCompact(item) {
+  return `
+    <div class="card-compact">
+      <span class="emoji">${item.emoji}</span>
+      <div class="info">
+        <div class="name">${item.name}</div>
+      </div>
+      <div class="price">${item.price} ₸</div>
+      <button class="add-btn" style="width:34px;height:34px;font-size:18px;" onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, '${item.emoji}')" title="Добавить">+</button>
+    </div>
+  `;
+}
+
+// ===== POPULATE GRIDS =====
+document.getElementById('grid-soups').innerHTML = data.soups.map(i => renderCard(i, 'hot-bg')).join('');
+document.getElementById('grid-main').innerHTML = data.main.map(i => renderCard(i, 'hot-bg')).join('');
+document.getElementById('grid-company').innerHTML = data.company.map(i => renderCard(i, 'set-bg')).join('');
+document.getElementById('grid-pizza').innerHTML = data.pizza.map(i => renderCard(i, 'pizza-bg')).join('');
+document.getElementById('grid-fast').innerHTML = data.fastfood.map(i => renderCard(i, 'fast-bg')).join('');
+document.getElementById('grid-shashlik').innerHTML = data.shashlik.map(i => renderCard(i, 'grill-bg')).join('');
+document.getElementById('grid-garnir').innerHTML = data.garnir.map(i => renderCompact(i)).join('');
+document.getElementById('grid-sauces').innerHTML = data.sauces.map(i => renderCompact(i)).join('');
+document.getElementById('grid-vegetables').innerHTML = data.vegetables.map(i => renderCard(i, 'green-bg')).join('');
+document.getElementById('grid-fruits').innerHTML = data.fruits.map(i => renderCard(i, 'fruit-bg')).join('');
+document.getElementById('grid-grocery').innerHTML = data.grocery.map(i => renderCard(i, 'grocery-bg')).join('');
+document.getElementById('grid-tobacco').innerHTML = data.tobacco.map(i => renderCard(i, 'tobacco-bg')).join('');
+document.getElementById('grid-hygiene').innerHTML = data.hygiene.map(i => renderCard(i, 'hygiene-bg')).join('');
+
+// ===== CART FUNCTIONS =====
+function addToCart(name, price, emoji) {
+  const existing = cart.find(i => i.name === name);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ name, price, emoji, qty: 1 });
+  }
+  updateCart();
+  showToast(name);
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function changeQty(index, delta) {
+  cart[index].qty += delta;
+  if (cart[index].qty <= 0) cart.splice(index, 1);
+  updateCart();
+}
+
+function updateCart() {
+  const count = cart.reduce((s, i) => s + i.qty, 0);
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  
+  document.getElementById('cartCount').textContent = count;
+  document.getElementById('cartTotal').textContent = total.toLocaleString('ru-RU') + ' ₸';
+  
+  const itemsEl = document.getElementById('cartItems');
+  const emptyEl = document.getElementById('cartEmpty');
+  
+  if (cart.length === 0) {
+    emptyEl.style.display = '';
+    itemsEl.querySelectorAll('.cart-item').forEach(e => e.remove());
+    return;
+  }
+  
+  emptyEl.style.display = 'none';
+  // rebuild items
+  const existingItems = itemsEl.querySelectorAll('.cart-item');
+  existingItems.forEach(e => e.remove());
+  
+  cart.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = 'cart-item';
+    div.innerHTML = `
+      <span class="emoji">${item.emoji}</span>
+      <div class="details">
+        <div class="item-name">${item.name}</div>
+        <div class="item-price">${(item.price * item.qty).toLocaleString('ru-RU')} ₸</div>
+      </div>
+      <div class="qty-controls">
+        <button class="qty-btn" onclick="changeQty(${idx}, -1)">−</button>
+        <span class="qty">${item.qty}</span>
+        <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+      </div>
+      <button class="remove-btn" onclick="removeFromCart(${idx})">✕</button>
+    `;
+    itemsEl.appendChild(div);
+  });
+}
+
+function toggleCart() {
+  document.getElementById('cartOverlay').classList.toggle('open');
+  document.getElementById('cartSidebar').classList.toggle('open');
+}
+
+function checkout() {
+  if (cart.length === 0) return;
+  
+  let msg = "🍱 *Новый заказ — АтырауДоставка*\n\n";
+  let total = 0;
+  cart.forEach(item => {
+    const sub = item.price * item.qty;
+    total += sub;
+    msg += `▪️ ${item.name} x${item.qty} — ${sub.toLocaleString('ru-RU')} ₸\n`;
+  });
+  msg += `\n💰 *Итого: ${total.toLocaleString('ru-RU')} ₸*`;
+  msg += `\n📦 Доставка: 1 000 ₸`;
+  msg += `\n\n📍 Доставка в СИЗО г. Атырау`;
+  
+  const encoded = encodeURIComponent(msg);
+  window.open(`https://wa.me/77755207309?text=${encoded}`, '_blank');
+}
+
+// ===== TOAST =====
+function showToast(name) {
+  const toast = document.getElementById('toast');
+  toast.textContent = `✅ ${name} добавлен`;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+// ===== HEADER SCROLL =====
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// ===== ACTIVE NAV =====
+const sections = document.querySelectorAll('.section[id]');
+const catLinks = document.querySelectorAll('.cat-link');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      catLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-100px 0px -60% 0px' });
+
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
