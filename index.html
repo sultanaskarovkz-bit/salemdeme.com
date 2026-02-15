@@ -385,7 +385,7 @@ body {
 /* ===== COMPACT GRID for sauces etc ===== */
 .grid-compact {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 14px;
 }
 .card-compact {
@@ -395,21 +395,23 @@ body {
   padding: 16px 18px;
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   transition: all 0.25s;
 }
 .card-compact:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
-.card-compact .emoji { font-size: 28px; }
-.card-compact .info { flex: 1; }
-.card-compact .name { font-size: 14px; font-weight: 700; }
+.card-compact .emoji { font-size: 28px; flex-shrink: 0; width: 32px; text-align: center; }
+.card-compact .info { flex: 1; min-width: 0; }
+.card-compact .name { font-size: 14px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .card-compact .price {
   font-size: 16px;
   font-weight: 800;
   color: var(--primary);
   white-space: nowrap;
+  min-width: 60px;
+  text-align: right;
 }
 
 /* ===== INFO BANNER ===== */
@@ -838,7 +840,7 @@ body {
     <div class="info-item">
       <div class="icon-big">💰</div>
       <h3>Оплата</h3>
-      <p>Принимаем оплату через Kaspi перевод и наличными при встрече. Минимальный заказ — 5 000 ₸. Доставка — 1 000 ₸.</p>
+      <p>Принимаем оплату через Kaspi перевод и наличными при встрече. Минимальный заказ — 5 000 ₸. Доставка — 10 000 ₸.</p>
     </div>
   </div>
 </div>
@@ -927,7 +929,7 @@ const data = {
     { name: "Болоньезе", price: 2390, emoji: "🍕", desc: "С мясным соусом болоньезе" },
     { name: "Курица с грибами", price: 2590, emoji: "🍕", desc: "Курица, грибы, сыр" },
     { name: "4 сезона", price: 2690, emoji: "🍕", desc: "Четыре начинки в одной" },
-    { name: "Хачапури по-аджарски", price: 2690, emoji: "🫓", desc: "С яйцом и сливочным маслом" },
+    { name: "Хачапури по-аджарски", price: 2690, emoji: "🍞", desc: "С яйцом и сливочным маслом" },
   ],
   fastfood: [
     { name: "Фри", price: 1090, emoji: "🍟", desc: "Хрустящий картофель фри" },
@@ -969,7 +971,7 @@ const data = {
     { name: "Огурцы", price: 1000, emoji: "🥒", desc: "1 кг", unit: "кг" },
     { name: "Капуста белокочанная", price: 350, emoji: "🥬", desc: "1 кг", unit: "кг" },
     { name: "Перец болгарский", price: 1200, emoji: "🌶️", desc: "1 кг", unit: "кг" },
-    { name: "Свёкла", price: 500, emoji: "🟤", desc: "1 кг", unit: "кг" },
+    { name: "Свёкла", price: 500, emoji: "🔴", desc: "1 кг", unit: "кг" },
     { name: "Чеснок", price: 2500, emoji: "🧄", desc: "1 кг", unit: "кг" },
     { name: "Баклажан", price: 1200, emoji: "🍆", desc: "1 кг", unit: "кг" },
     { name: "Кабачок", price: 1100, emoji: "🥒", desc: "1 кг", unit: "кг" },
@@ -1039,7 +1041,7 @@ const data = {
     { name: "Спички (уп.)", price: 200, emoji: "🔥", desc: "Упаковка", unit: "уп." },
   ],
   hygiene: [
-    { name: "Тапочки", price: 2500, emoji: "🩴", desc: "1 пара", unit: "шт" },
+    { name: "Тапочки", price: 2500, emoji: "👟", desc: "1 пара", unit: "шт" },
     { name: "Мыло гигиеническое", price: 400, emoji: "🧼", desc: "90г", unit: "шт" },
     { name: "Ватные палочки 100 шт", price: 500, emoji: "🏥", desc: "100 штук", unit: "уп." },
     { name: "Хозяйственное мыло", price: 300, emoji: "🧼", desc: "200г", unit: "шт" },
@@ -1047,9 +1049,9 @@ const data = {
     { name: "Влажные салфетки 60 шт", price: 900, emoji: "🧻", desc: "60 шт", unit: "уп." },
     { name: "Туалетная бумага", price: 200, emoji: "🧻", desc: "1 рулон", unit: "шт" },
     { name: "Дезодорант", price: 2000, emoji: "🧴", desc: "150 мл", unit: "шт" },
-    { name: "Бритва (5 шт)", price: 2500, emoji: "🪒", desc: "Одноразовые", unit: "уп." },
-    { name: "Зубная щётка", price: 800, emoji: "🪥", desc: "1 штука", unit: "шт" },
-    { name: "Зубная паста", price: 1000, emoji: "🪥", desc: "100 мл", unit: "шт" },
+    { name: "Бритва (5 шт)", price: 2500, emoji: "✂️", desc: "Одноразовые", unit: "уп." },
+    { name: "Зубная щётка", price: 800, emoji: "🦷", desc: "1 штука", unit: "шт" },
+    { name: "Зубная паста", price: 1000, emoji: "🦷", desc: "100 мл", unit: "шт" },
     { name: "Шампунь 400мл", price: 2500, emoji: "🧴", desc: "400 мл", unit: "шт" },
     { name: "Гель для душа", price: 2200, emoji: "🚿", desc: "400 мл", unit: "шт" },
   ]
@@ -1089,7 +1091,7 @@ function renderCompact(item) {
         <div class="name">${item.name}</div>
       </div>
       <div class="price">${item.price} ₸</div>
-      <button class="add-btn" style="width:34px;height:34px;font-size:18px;" onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, '${item.emoji}')" title="Добавить">+</button>
+      <button class="add-btn" style="width:34px;height:34px;font-size:18px;flex-shrink:0;" onclick="addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price}, '${item.emoji}')" title="Добавить">+</button>
     </div>
   `;
 }
@@ -1189,7 +1191,7 @@ function checkout() {
     msg += `▪️ ${item.name} x${item.qty} — ${sub.toLocaleString('ru-RU')} ₸\n`;
   });
   msg += `\n💰 *Итого: ${total.toLocaleString('ru-RU')} ₸*`;
-  msg += `\n📦 Доставка: 1 000 ₸`;
+  msg += `\n📦 Доставка: 10 000 ₸`;
   msg += `\n\n📍 Доставка в СИЗО г. Атырау`;
   
   const encoded = encodeURIComponent(msg);
